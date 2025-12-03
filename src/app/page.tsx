@@ -21,7 +21,7 @@ export type SectionRefs = {
 };
 
 export default function Home() {
-  const [isLoaded, setIsLoaded] = useState(false);
+  const [initialLoad, setInitialLoad] = useState(false);
   const [activeSection, setActiveSection] = useState('hero');
 
   const heroRef = useRef<HTMLDivElement>(null);
@@ -65,18 +65,18 @@ export default function Home() {
   return (
     <>
       <AnimatePresence>
-        {!isLoaded && <LoadingScreen />}
+        {!initialLoad && <LoadingScreen />}
       </AnimatePresence>
       <motion.div
         initial={{ opacity: 0 }}
-        animate={{ opacity: isLoaded ? 1 : 0 }}
+        animate={{ opacity: initialLoad ? 1 : 0 }}
         transition={{ duration: 1.0 }}
         className="relative"
       >
         <Header activeSection={activeSection} sectionRefs={sectionRefs} />
         <main className="relative z-10">
           <div ref={heroRef} id="hero" className="h-screen sticky top-0 -z-10">
-            <HeroSection onInitialLoadComplete={() => setIsLoaded(true)} />
+            <HeroSection onInitialLoadComplete={() => setInitialLoad(true)} />
           </div>
           <div className="relative bg-background">
             <div ref={productRef} id="product">
