@@ -10,6 +10,9 @@ interface UseParallaxProps {
 const SCROLL_FACTOR = 2.0; // Determines how much scroll distance is needed for the full animation
 const INTRO_ANIMATION_DURATION = 3000; // 3 seconds for the intro animation
 
+// Easing function for a smoother animation
+const easeOutCubic = (t: number) => 1 - Math.pow(1 - t, 3);
+
 export function useParallax({ sequenceUrl, frameCount }: UseParallaxProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [images, setImages] = useState<HTMLImageElement[]>([]);
@@ -60,7 +63,7 @@ export function useParallax({ sequenceUrl, frameCount }: UseParallaxProps) {
         if (loadedCount === frameCount) {
           image_cache.current[cacheKey] = imagesArray;
           setImages(imagesArray);
-          setIsLoaded(true);
+setIsLoaded(true);
         }
       };
     }
@@ -83,10 +86,11 @@ export function useParallax({ sequenceUrl, frameCount }: UseParallaxProps) {
           introStartTime.current = time || performance.now();
         }
         const elapsedTime = (time || performance.now()) - introStartTime.current;
-        const introProgress = Math.min(elapsedTime / INTRO_ANIMATION_DURATION, 1);
-        frameIndex = Math.floor(introProgress * (frameCount - 1));
+        const rawProgress = Math.min(elapsedTime / INTRO_ANIMATION_DURATION, 1);
+        const easedProgress = easeOutCubic(rawProgress);
+        frameIndex = Math.floor(easedProgress * (frameCount - 1));
 
-        if (introProgress >= 1) {
+        if (rawProgress >= 1) {
           hasPlayedIntro.current = true;
         }
       } else {
