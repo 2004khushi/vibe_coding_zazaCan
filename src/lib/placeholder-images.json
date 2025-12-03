@@ -1,3 +1,51 @@
 {
-  "placeholderImages": []
+  "cta_bg": {
+    "src": "https://picsum.photos/seed/cta-bg/1600/800",
+    "width": 1600,
+    "height": 800,
+    "alt": "Abstract background",
+    "hint": "abstract texture"
+  },
+  "zaza_group": {
+    "src": "https://picsum.photos/seed/zaza-group/600/600",
+    "width": 600,
+    "height": 600,
+    "alt": "Group of Zaza cans",
+    "hint": "soda cans group"
+  },
+  "zaza_can": {
+    "src": "https://picsum.photos/seed/zaza-can/600/600",
+    "width": 600,
+    "height": 600,
+    "alt": "Zaza soda can",
+    "hint": "soda can"
+  },
+  "zaza_lifestyle": {
+    "src": "https://picsum.photos/seed/zaza-lifestyle/800/1000",
+    "width": 800,
+    "height": 1000,
+    "alt": "Lifestyle image of Zaza soda",
+    "hint": "lifestyle drink"
+  },
+  "avatar_1": {
+    "src": "https://picsum.photos/seed/avatar1/150/150",
+    "width": 150,
+    "height": 150,
+    "alt": "Reviewer avatar",
+    "hint": "person portrait"
+  },
+  "avatar_2": {
+    "src": "https://picsum.photos/seed/avatar2/150/150",
+    "width": 150,
+    "height": 150,
+    "alt": "Reviewer avatar",
+    "hint": "person portrait"
+  },
+  "avatar_3": {
+    "src": "https://picsum.photos/seed/avatar3/150/150",
+    "width": 150,
+    "height": 150,
+    "alt": "Reviewer avatar",
+    "hint": "person portrait"
+  }
 }
