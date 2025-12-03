@@ -5,7 +5,7 @@ export default function ProductSection() {
   const { zaza_lifestyle } = placeholderImages;
 
   return (
-    <section className="py-20 md:py-32 bg-secondary">
+    <section className="py-20 md:py-32 bg-background">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
           <div className="space-y-6 text-center md:text-left">

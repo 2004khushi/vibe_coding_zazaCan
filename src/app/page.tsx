@@ -2,7 +2,6 @@
 
 import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Facebook, Instagram, Twitter } from 'lucide-react';
 
 import { cn } from '@/lib/utils';
 import Header from '@/components/layout/header';
@@ -75,30 +74,32 @@ export default function Home() {
         className="relative"
       >
         <Header activeSection={activeSection} sectionRefs={sectionRefs} />
-        <main>
-          <div ref={heroRef} id="hero">
+        <main className="relative z-10">
+          <div ref={heroRef} id="hero" className="h-screen sticky top-0 -z-10">
             <HeroSection onInitialLoadComplete={() => setIsLoaded(true)} />
           </div>
-          <div ref={productRef} id="product">
-            <ProductSection />
-          </div>
-          <div ref={ingredientsRef} id="ingredients">
-            <IngredientsSection />
-          </div>
-          <div ref={nutritionRef} id="nutrition">
-            <NutritionSection />
-          </div>
-          <div ref={reviewsRef} id="reviews">
-            <ReviewsSection />
-          </div>
-          <div ref={faqRef} id="faq">
-            <FaqSection />
-          </div>
-          <div ref={contactRef} id="contact">
-            <FinalCtaSection />
+          <div className="relative bg-background">
+            <div ref={productRef} id="product">
+              <ProductSection />
+            </div>
+            <div ref={ingredientsRef} id="ingredients">
+              <IngredientsSection />
+            </div>
+            <div ref={nutritionRef} id="nutrition">
+              <NutritionSection />
+            </div>
+            <div ref={reviewsRef} id="reviews">
+              <ReviewsSection />
+            </div>
+            <div ref={faqRef} id="faq">
+              <FaqSection />
+            </div>
+            <div ref={contactRef} id="contact">
+              <FinalCtaSection />
+            </div>
+            <Footer />
           </div>
         </main>
-        <Footer />
       </motion.div>
     </>
   );
